@@ -8,6 +8,8 @@
         "gulp-browserify": "*",
         "gulp-concat": "*",
         "gulp-less": "*",
+        "gulp-compile-handlebars": "*",
+        "gulp-rename": "*",
         "gulp-livereload": "*",
         "tiny-lr": "*",
         "gulp-minify-css": "*",
