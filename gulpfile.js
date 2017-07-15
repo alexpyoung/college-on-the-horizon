@@ -27,8 +27,8 @@ gulp.task('styles', function() {
 })
 
 gulp.task('assets', function() {
-    gulp.src('img/**/*.*')
-        .pipe(gulp.dest('build/img'))
+    gulp.src('assets/**/*.*')
+        .pipe(gulp.dest('build/assets'))
 })
 
 gulp.task('handlebars', function() {
