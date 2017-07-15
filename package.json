@@ -12,6 +12,7 @@
         "gulp-rename": "*",
         "gulp-livereload": "*",
         "tiny-lr": "*",
+        "merge-stream": "*",
         "gulp-minify-css": "*",
         "gulp-embedlr": "*"
     }

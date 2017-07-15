@@ -6,6 +6,7 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var refresh = require('gulp-livereload');
 var lr = require('tiny-lr');
+var merge = require('merge-stream');
 var server = lr();
 var minifyCSS = require('gulp-minify-css');
 var embedlr = require('gulp-embedlr');
@@ -13,17 +14,28 @@ var embedlr = require('gulp-embedlr');
 gulp.task('scripts', function() {
     gulp.src(['js/**/*.js'])
         .pipe(browserify())
-        .pipe(concat('dest.js'))
-        .pipe(gulp.dest('dist/build'))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('build/js'))
         .pipe(refresh(server))
 })
 
 gulp.task('styles', function() {
-    gulp.src(['css/main.less'])
+    var lessStream = gulp.src(['css/main.less'])
         .pipe(less())
+
+    var cssStream = gulp.src('css/*.css')
+        .pipe(concat('vendor.css'))
+
+    return merge(lessStream, cssStream)
+        .pipe(concat('main.css'))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('css/'))
+        .pipe(gulp.dest('build/css'))
         .pipe(refresh(server))
+})
+
+gulp.task('assets', function() {
+    gulp.src('img/**/*.*')
+        .pipe(gulp.dest('build/img'))
 })
 
 gulp.task('lr-server', function() {
@@ -40,11 +52,11 @@ gulp.task('handlebars', function() {
         .pipe(rename(function(path) {
             path.extname = '.html';
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('build/'));
 })
 
 gulp.task('default', function() {
-    gulp.run('lr-server', 'scripts', 'styles', 'handlebars');
+    gulp.run('lr-server', 'scripts', 'styles', 'handlebars', 'assets');
 
     gulp.watch('js/**', function(event) {
         gulp.run('scripts');
