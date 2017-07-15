@@ -15,7 +15,8 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('styles', function() {
-    var lessStream = gulp.src(['styles/main.less'])
+    var lessStream = gulp.src(['styles/*.less'])
+        .pipe(concat('main.less'))
         .pipe(less())
 
     var cssStream = gulp.src('styles/vendor/*.css')
