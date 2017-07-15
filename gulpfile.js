@@ -20,10 +20,10 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('styles', function() {
-    var lessStream = gulp.src(['css/main.less'])
+    var lessStream = gulp.src(['styles/main.less'])
         .pipe(less())
 
-    var cssStream = gulp.src('css/*.css')
+    var cssStream = gulp.src('styles/vendor/*.css')
         .pipe(concat('vendor.css'))
 
     return merge(lessStream, cssStream)
@@ -58,15 +58,15 @@ gulp.task('handlebars', function() {
 gulp.task('default', function() {
     gulp.run('lr-server', 'scripts', 'styles', 'handlebars', 'assets');
 
-    gulp.watch('js', function(event) {
+    gulp.watch('./js', function(event) {
         gulp.run('scripts');
     })
 
-    gulp.watch('css', function(event) {
+    gulp.watch('./styles', function(event) {
         gulp.run('styles');
     })
 
-    gulp.watch('templates', function() {
+    gulp.watch('./templates', function() {
         gulp.run('handlebars');
     })
 })
