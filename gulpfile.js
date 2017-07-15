@@ -8,9 +8,7 @@ var merge = require('merge-stream')
 var cleanCSS = require('gulp-clean-css')
 
 gulp.task('scripts', function() {
-    gulp.src(['js/**/*.js'])
-        .pipe(browserify())
-        .pipe(concat('main.js'))
+    gulp.src('js/**/*.js')
         .pipe(gulp.dest('build/js'))
 })
 
