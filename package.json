@@ -1,7 +1,7 @@
 {
     "name": "college-on-the-horizon",
     "version": "0.0.1",
-    "author": "Alex Young <alexyoung1992@gmail.com",
+    "author": "Alex Young <alexyoung1992@gmail.com>",
     "description": "Business website",
     "dependencies": {
         "gulp": "*",
