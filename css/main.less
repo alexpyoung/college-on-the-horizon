@@ -9,7 +9,7 @@
 
 @default-spacing: 50px;
 
-nav {
+nav, footer {
     background-color: @off-black;
     height: 325px;
     line-height: 60px;
@@ -24,6 +24,7 @@ nav {
 
     ul {
         margin: 0;
+        padding: 0;
         text-align: center;
         @media screen and (min-width: @pure-md) {
             text-align: left;
@@ -33,6 +34,32 @@ nav {
     a {
         color: @yellow;
         text-decoration: none;
+    }
+}
+
+footer {
+    height: 240px;
+    color: @off-white;
+    line-height: 20px;
+    @media screen and (min-width: @pure-md) {
+        height: 170px;
+    }
+
+    ul {
+        padding: @default-spacing/2 0;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    section {
+        text-align: center;
+        font-size: small;
+
+        a {
+            color: @off-white;
+            text-decoration: none;
+        }
     }
 }
 
