@@ -5,7 +5,7 @@ var less = require('gulp-less')
 var handlebars = require('gulp-compile-handlebars')
 var rename = require('gulp-rename')
 var merge = require('merge-stream')
-var minifyCSS = require('gulp-minify-css')
+var cleanCSS = require('gulp-clean-css')
 
 gulp.task('scripts', function() {
     gulp.src(['js/**/*.js'])
@@ -23,7 +23,7 @@ gulp.task('styles', function() {
 
     return merge(lessStream, cssStream)
         .pipe(concat('main.css'))
-        .pipe(minifyCSS())
+        .pipe(cleanCSS())
         .pipe(gulp.dest('build/css'))
 })
 
