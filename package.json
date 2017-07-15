@@ -1,0 +1,16 @@
+{
+    "name": "college-on-the-horizon",
+    "version": "0.0.1",
+    "author": "Alex Young <alexyoung1992@gmail.com",
+    "description": "Business website",
+    "dependencies": {
+        "gulp": "*",
+        "gulp-browserify": "*",
+        "gulp-concat": "*",
+        "gulp-less": "*",
+        "gulp-livereload": "*",
+        "tiny-lr": "*",
+        "gulp-minify-css": "*",
+        "gulp-embedlr": "*"
+    }
+}
