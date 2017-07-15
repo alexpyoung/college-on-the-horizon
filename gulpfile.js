@@ -1,15 +1,15 @@
-var gulp = require('gulp');
-var browserify = require('gulp-browserify');
-var concat = require('gulp-concat');
-var less = require('gulp-less');
-var handlebars = require('gulp-compile-handlebars');
-var rename = require('gulp-rename');
-var refresh = require('gulp-livereload');
-var lr = require('tiny-lr');
-var merge = require('merge-stream');
-var server = lr();
-var minifyCSS = require('gulp-minify-css');
-var embedlr = require('gulp-embedlr');
+var gulp = require('gulp')
+var browserify = require('gulp-browserify')
+var concat = require('gulp-concat')
+var less = require('gulp-less')
+var handlebars = require('gulp-compile-handlebars')
+var rename = require('gulp-rename')
+var refresh = require('gulp-livereload')
+var lr = require('tiny-lr')
+var merge = require('merge-stream')
+var server = lr()
+var minifyCSS = require('gulp-minify-css')
+var embedlr = require('gulp-embedlr')
 
 gulp.task('scripts', function() {
     gulp.src(['js/**/*.js'])
@@ -40,8 +40,8 @@ gulp.task('assets', function() {
 
 gulp.task('lr-server', function() {
     server.listen(35729, function(err) {
-        if(err) return console.log(err);
-    });
+        if(err) return console.log(err)
+    })
 })
 
 gulp.task('handlebars', function() {
@@ -50,23 +50,24 @@ gulp.task('handlebars', function() {
             batch: ['partials']
         }))
         .pipe(rename(function(path) {
-            path.extname = '.html';
+            path.extname = '.html'
         }))
-        .pipe(gulp.dest('build/'));
+        .pipe(gulp.dest('build/'))
+        .pipe(refresh())
 })
 
-gulp.task('default', function() {
-    gulp.run('lr-server', 'scripts', 'styles', 'handlebars', 'assets');
-
-    gulp.watch('./js', function(event) {
-        gulp.run('scripts');
-    })
-
-    gulp.watch('./styles', function(event) {
-        gulp.run('styles');
-    })
-
-    gulp.watch('./templates', function() {
-        gulp.run('handlebars');
-    })
+gulp.task('watch', function() {
+    gulp.watch('./js/**.js', ['scripts'])
+    gulp.watch('./styles/*.less', ['styles'])
+    gulp.watch('./templates/*.handlebars', ['handlebars'])
+    gulp.watch('./partials/*.handlebars', ['handlebars'])
 })
+
+gulp.task('default', [
+    'lr-server',
+    'scripts',
+    'styles',
+    'handlebars',
+    'assets',
+    'watch'
+])
