@@ -6,7 +6,6 @@ var handlebars = require('gulp-compile-handlebars')
 var rename = require('gulp-rename')
 var merge = require('merge-stream')
 var minifyCSS = require('gulp-minify-css')
-var embedlr = require('gulp-embedlr')
 
 gulp.task('scripts', function() {
     gulp.src(['js/**/*.js'])
@@ -45,10 +44,10 @@ gulp.task('handlebars', function() {
 })
 
 gulp.task('watch', function() {
-    gulp.watch('./js/**.js', ['scripts'])
-    gulp.watch('./styles/*.less', ['styles'])
-    gulp.watch('./templates/*.handlebars', ['handlebars'])
-    gulp.watch('./partials/*.handlebars', ['handlebars'])
+    gulp.watch('js/**.js', ['scripts'])
+    gulp.watch('styles/*.less', ['styles'])
+    gulp.watch('templates/*.handlebars', ['handlebars'])
+    gulp.watch('partials/*.handlebars', ['handlebars'])
 })
 
 gulp.task('default', [
