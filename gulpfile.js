@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var browserify = requi  re('gulp-browserify');
+var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var less = require('gulp-less');
 var refresh = require('gulp-livereload');
