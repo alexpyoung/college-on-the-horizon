@@ -2,10 +2,20 @@
 @off-black: #252624;
 @off-white: #E8E8E3;
 
+@pure-sm: 35.5em;
+@pure-md: 48em;
+@pure-lg: 64em;
+@pure-xl: 80em;
+
+@default-spacing: 50px;
+
 nav {
     background-color: @off-black;
-    height: 60px;
+    height: 325px;
     line-height: 60px;
+    @media screen and (min-width: @pure-md) {
+        height: 60px;
+    }
 
     img {
         height: 30px;
@@ -14,6 +24,10 @@ nav {
 
     ul {
         margin: 0;
+        text-align: center;
+        @media screen and (min-width: @pure-md) {
+            text-align: left;
+        }
     }
 
     a {
@@ -24,10 +38,25 @@ nav {
 
 .hero {
     text-align: center;
+    background-color: @yellow;
 
     .hero-logo {
-        height: 120px;
-        margin: 100px auto;
+        @media screen and (min-width: @pure-sm) {
+            height: 100px;
+        }
+        @media screen and (min-width: @pure-md) {
+            height: 120px;
+        }
+        height: 70px;
+        margin: 100px auto 0 auto;
+    }
+
+    .tagline {
+        font-weight: bold;
+        padding: @default-spacing 0;
+        background-color: @yellow;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -37,13 +66,13 @@ nav {
     }
 
     h2 {
-        margin: 50px auto 0 auto;
+        margin: @default-spacing auto 0 auto;
         color: @yellow;
         text-transform: uppercase;
     }
 
     h3 {
-        margin: 0 auto 50px auto;
+        margin: 0 auto @default-spacing auto;
         color: @off-white;
         text-transform: uppercase;
     }
@@ -60,8 +89,17 @@ nav {
         border: 0;
     }
 
+    .introduction {
+        padding: @default-spacing @default-spacing*4;
+
+        h2 {
+            color: @off-black;
+            margin: 0;
+        }
+    }
+
     .package-copy {
-        margin: 50px auto;
+        margin: @default-spacing auto;
         max-width: 960px;
         color: @off-white;
     }
@@ -99,13 +137,13 @@ nav {
         p {
             color: @off-white;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: @default-spacing;
         }
     }
 
     .testimonial {
         max-width: 800px;
-        margin: 50px auto;
+        margin: @default-spacing auto;
     }
 
     .testimonial-quote {
