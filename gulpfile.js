@@ -45,7 +45,7 @@ gulp.task('lr-server', function() {
 })
 
 gulp.task('handlebars', function() {
-    gulp.src('*.handlebars')
+    gulp.src('templates/*.handlebars')
         .pipe(handlebars({}, {
             batch: ['partials']
         }))
@@ -58,15 +58,15 @@ gulp.task('handlebars', function() {
 gulp.task('default', function() {
     gulp.run('lr-server', 'scripts', 'styles', 'handlebars', 'assets');
 
-    gulp.watch('js/**', function(event) {
+    gulp.watch('js', function(event) {
         gulp.run('scripts');
     })
 
-    gulp.watch('css/**', function(event) {
+    gulp.watch('css', function(event) {
         gulp.run('styles');
     })
 
-    gulp.watch('**/*.handlebars', function() {
+    gulp.watch('templates', function() {
         gulp.run('handlebars');
     })
 })
