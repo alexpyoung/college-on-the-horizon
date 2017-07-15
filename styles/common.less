@@ -26,6 +26,18 @@ nav, footer {
     }
 }
 
+.accordion-toggle {
+    cursor: pointer;
+}
+
+.accordion-content {
+    display: none;
+
+    &.default {
+        display: block;
+    }
+}
+
 .cta {
     display: block;
     margin: @default-spacing auto;
