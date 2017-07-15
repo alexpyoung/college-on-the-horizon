@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var less = require('gulp-less');
+var handlebars = require('gulp-compile-handlebars');
+var rename = require('gulp-rename');
 var refresh = require('gulp-livereload');
 var lr = require('tiny-lr');
 var server = lr();
@@ -30,15 +32,19 @@ gulp.task('lr-server', function() {
     });
 })
 
-gulp.task('html', function() {
-    gulp.src("*.html")
-        // .pipe(embedlr())
-        .pipe(gulp.dest('./'))
-        .pipe(refresh(server));
+gulp.task('handlebars', function() {
+    gulp.src('*.handlebars')
+        .pipe(handlebars({}, {
+            batch: ['partials']
+        }))
+        .pipe(rename(function(path) {
+            path.extname = '.html';
+        }))
+        .pipe(gulp.dest('./'));
 })
 
 gulp.task('default', function() {
-    gulp.run('lr-server', 'scripts', 'styles', 'html');
+    gulp.run('lr-server', 'scripts', 'styles', 'handlebars');
 
     gulp.watch('js/**', function(event) {
         gulp.run('scripts');
@@ -48,7 +54,7 @@ gulp.task('default', function() {
         gulp.run('styles');
     })
 
-    gulp.watch('*.html', function(event) {
-        gulp.run('html');
+    gulp.watch('**/*.handlebars', function() {
+        gulp.run('handlebars');
     })
 })
