@@ -4,15 +4,20 @@
 
 nav, footer {
     background-color: @off-black;
-    height: 325px;
-    line-height: 60px;
+    height: 270px;
+    line-height: 45px;
     @media screen and (min-width: @pure-md) {
         height: 60px;
+        line-height: 60px;
     }
 
     img {
         height: 30px;
-        margin: 15px auto;
+        margin: @default-spacing/2 auto 0 auto;
+        @media screen and (min-width: @pure-sm) {
+            margin: 15px auto;
+            padding-left: @default-spacing;
+        }
     }
 
     ul {
@@ -58,23 +63,24 @@ nav, footer {
 }
 
 footer {
-    height: 240px;
+    height: 310px;
     color: @off-white;
-    line-height: 20px;
     @media screen and (min-width: @pure-md) {
         height: 170px;
     }
 
     ul {
-        padding: @default-spacing/2 0;
+        padding: @default-spacing/5 0;
         text-align: center;
         max-width: 700px;
         margin: 0 auto;
+        line-height: 45px;
     }
 
     section {
         text-align: center;
         font-size: small;
+        line-height: 20px;
 
         a {
             color: @off-white;

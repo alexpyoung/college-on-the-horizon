@@ -61,8 +61,12 @@
 
         h2 {
             color: @off-black;
-            margin: 0;
+            margin: @default-spacing/2 0;
             padding: 0;
+
+            @media screen and (min-width: @pure-sm) {
+                margin: 0;
+            }
         }
     }
 
