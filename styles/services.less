@@ -66,6 +66,10 @@
         }
     }
 
+    .service-facets {
+        display: none;
+    }
+
     .package-copy {
         margin: @default-spacing auto;
         max-width: 960px;
@@ -84,35 +88,39 @@
         }
     }
 
+    .package-bg() {
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: -80px;
+
+        @media screen and (min-width: @pure-md) {
+            background-position-y: -300px;
+        }
+    }
+
     .package-early {
         background-image: url('../assets/img/bg-early-package.jpg');
-        background-size: cover;
-        background-position-y: -340px;
+        .package-bg;
     }
     .package-junior {
         background-image: url('../assets/img/bg-jr-package.jpg');
-        background-size: cover;
-        background-position-y: -340px;
+        .package-bg;
     }
     .package-senior {
         background-image: url('../assets/img/bg-sr-package.jpg');
-        background-size: cover;
-        background-position-y: -340px;
+        .package-bg;
     }
     .package-transfer {
         background-image: url('../assets/img/bg-transfer-package.jpg');
-        background-size: cover;
-        background-position-y: -340px;
+        .package-bg;
     }
     .package-athlete {
         background-image: url('../assets/img/bg-athlete-package.jpg');
-        background-size: cover;
-        background-position-y: -710px;
+        .package-bg;
     }
     .additional-services {
         background-image: url('../assets/img/bg-additional-services.jpg');
-        background-size: cover;
-        background-position-y: -340px;
+        .package-bg;
 
         .service-facets {
             padding: 0 @minimum-padding;
@@ -136,6 +144,11 @@
     }
 
     .testimonial-author {
-        font-weight: bold;
+        font-family: 'Vollkorn' !important;
+        color: @gray;
+    }
+
+    .testimonial-occupation {
+        color: @gray;
     }
 }
