@@ -7,7 +7,13 @@ $(document).ready(function($) {
     $('.services').find('section').click(function() {
         let contentSelector = '.package-copy'
         let content = $(this).children(contentSelector)
-        content.slideToggle(accordionSpeed)
+        $('.service-facets').slideUp(accordionSpeed)
         $(contentSelector).not(content).slideUp(accordionSpeed)
+        content.slideToggle(accordionSpeed)
+    })
+    $('.services').find('.additional-services').click(function() {
+        let content = $(this).children('.service-facets')
+        $('.package-copy').slideUp(accordionSpeed)
+        content.slideToggle(accordionSpeed)
     })
 })
