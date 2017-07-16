@@ -18,4 +18,7 @@ $(document).ready(function($) {
         $('.package-copy').slideUp(accordionSpeed)
         content.slideToggle(accordionSpeed)
     })
+    $('.menu-icon').click(function(){
+        $(this).toggleClass('open');
+    });
 })
