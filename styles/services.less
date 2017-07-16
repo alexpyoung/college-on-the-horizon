@@ -25,7 +25,7 @@
 .services {
     h2, h3, h4 {
         text-align: center;
-        padding: 0 10%;
+        padding: 0 @minimum-padding;
     }
 
     h2 {
@@ -57,7 +57,7 @@
     }
 
     .introduction {
-        padding: @default-spacing 10%;
+        padding: @default-spacing @minimum-padding;
 
         h2 {
             color: @off-black;
@@ -71,7 +71,7 @@
         max-width: 960px;
         color: @off-white;
         display: none;
-        padding: 0 10%;
+        padding: 0 @minimum-padding;
 
         li {
             list-style: none;
@@ -115,7 +115,7 @@
         background-position-y: -340px;
 
         .service-facets {
-            padding: 0 10%;
+            padding: 0 @minimum-padding;
         }
 
         p {
@@ -128,7 +128,7 @@
     .testimonial {
         max-width: 800px;
         margin: @default-spacing auto;
-        padding: 0 10%;
+        padding: 0 @minimum-padding;
     }
 
     .testimonial-quote {
