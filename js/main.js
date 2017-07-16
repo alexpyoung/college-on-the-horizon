@@ -4,10 +4,12 @@ $(document).ready(function($) {
         $(this).next().slideToggle(accordionSpeed)
         $(".accordion-content").not($(this).next()).slideUp(accordionSpeed)
     })
-    $('.services').find('section').click(function() {
+    $('.services').find('section[class*=package-]').click(function() {
         let contentSelector = '.package-copy'
         let content = $(this).children(contentSelector)
-        $('.service-facets').slideUp(accordionSpeed)
+        if ($('.service-facets').is(':visible')) {
+            $('.service-facets').slideUp(accordionSpeed)
+        }
         $(contentSelector).not(content).slideUp(accordionSpeed)
         content.slideToggle(accordionSpeed)
     })
