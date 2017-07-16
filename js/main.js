@@ -1,9 +1,10 @@
 $(document).ready(function($) {
     let accordionSpeed = 'fast'
-    $('.content').find('.accordion-toggle').click(function(){
-        $(this).next().slideToggle(accordionSpeed)
-        $(".accordion-content").not($(this).next()).slideUp(accordionSpeed)
-    })
+    // Hamburger menu toggle
+    $('.menu-icon').click(function(){
+        $(this).toggleClass('open');
+    });
+    // Packages accordion
     $('.services').find('section[class*=package-]').click(function() {
         let contentSelector = '.package-copy'
         let content = $(this).children(contentSelector)
@@ -18,7 +19,9 @@ $(document).ready(function($) {
         $('.package-copy').slideUp(accordionSpeed)
         content.slideToggle(accordionSpeed)
     })
-    $('.menu-icon').click(function(){
-        $(this).toggleClass('open');
-    });
+    // FAQ accordion-toggle
+    $('.content').find('.accordion-toggle').click(function(){
+        $(this).next().slideToggle(accordionSpeed)
+        $(".accordion-content").not($(this).next()).slideUp(accordionSpeed)
+    })
 })
