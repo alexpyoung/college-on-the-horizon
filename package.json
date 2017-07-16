@@ -11,6 +11,7 @@
         "gulp-compile-handlebars": "*",
         "gulp-rename": "*",
         "merge-stream": "*",
+        "gulp-autoprefixer": "*",
         "gulp-clean-css": "*"
     }
 }

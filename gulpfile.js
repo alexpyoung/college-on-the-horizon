@@ -6,6 +6,7 @@ const handlebars = require('gulp-compile-handlebars')
 const rename = require('gulp-rename')
 const merge = require('merge-stream')
 const cleanCSS = require('gulp-clean-css')
+const autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('scripts', () => {
     gulp.src('js/**/*.js')
@@ -16,6 +17,10 @@ gulp.task('styles', () => {
     const lessStream = gulp.src(['styles/*.less'])
         .pipe(concat('main.less'))
         .pipe(less())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
 
     const cssStream = gulp.src('styles/vendor/*.css')
         .pipe(concat('vendor.css'))
