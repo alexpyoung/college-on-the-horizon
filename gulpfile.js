@@ -1,5 +1,4 @@
 const gulp = require('gulp')
-const browserify = require('gulp-browserify')
 const concat = require('gulp-concat')
 const less = require('gulp-less')
 const handlebars = require('gulp-compile-handlebars')

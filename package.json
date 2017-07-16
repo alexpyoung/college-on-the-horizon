@@ -1,17 +1,16 @@
 {
-    "name": "college-on-the-horizon",
-    "version": "0.0.1",
-    "author": "Alex Young <alexyoung1992@gmail.com>",
-    "description": "Business website",
-    "dependencies": {
-        "gulp": "*",
-        "gulp-browserify": "*",
-        "gulp-concat": "*",
-        "gulp-less": "*",
-        "gulp-compile-handlebars": "*",
-        "gulp-rename": "*",
-        "merge-stream": "*",
-        "gulp-autoprefixer": "*",
-        "gulp-clean-css": "*"
-    }
+  "name": "college-on-the-horizon",
+  "version": "0.0.1",
+  "author": "Alex Young <alexyoung1992@gmail.com>",
+  "description": "Business website",
+  "devDependencies": {
+    "gulp": "3.9.x",
+    "gulp-autoprefixer": "4.0.x",
+    "gulp-clean-css": "3.7.x",
+    "gulp-compile-handlebars": "0.6.x",
+    "gulp-concat": "2.6.x",
+    "gulp-less": "3.3.x",
+    "gulp-rename": "1.2.x",
+    "merge-stream": "1.0.x"
+  }
 }
