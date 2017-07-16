@@ -2,6 +2,9 @@
     h1 {
         color: @yellow;
         margin: @default-spacing @minimum-padding;
+        @media screen and (min-width: @pure-md) {
+            margin: @default-spacing 15%;
+        }
     }
 
     h1, p {
@@ -9,10 +12,42 @@
     }
 
     p {
-    margin: 0 @minimum-padding @default-spacing @minimum-padding;
+        margin: 0 @minimum-padding @default-spacing @minimum-padding;
+        @media screen and (min-width: @pure-md) {
+            margin: 0 15% @default-spacing 15%;
+        }
         a {
             color: @yellow;
         }
+    }
+
+    form {
+        > * {
+            display: block;
+        }
+
+        .pure-u-1-2:first-child {
+            text-align: right;
+        }
+    }
+
+    input[type=text], textarea {
+        border: thin solid @yellow;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: @default-spacing auto;
+        min-width: 250px;
+        max-width: 400px;
+    }
+
+    textarea {
+        min-height: 250px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     .cta {
