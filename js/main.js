@@ -3,6 +3,7 @@ $(document).ready(function($) {
     // Hamburger menu toggle
     $('.menu-icon').click(function(){
         $(this).toggleClass('open');
+        $('.nav-link').slideToggle(accordionSpeed)
     });
     // Packages accordion
     $('.services').find('section[class*=package-]').click(function() {
