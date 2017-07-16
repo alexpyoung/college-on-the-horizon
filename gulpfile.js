@@ -1,23 +1,23 @@
-var gulp = require('gulp')
-var browserify = require('gulp-browserify')
-var concat = require('gulp-concat')
-var less = require('gulp-less')
-var handlebars = require('gulp-compile-handlebars')
-var rename = require('gulp-rename')
-var merge = require('merge-stream')
-var cleanCSS = require('gulp-clean-css')
+const gulp = require('gulp')
+const browserify = require('gulp-browserify')
+const concat = require('gulp-concat')
+const less = require('gulp-less')
+const handlebars = require('gulp-compile-handlebars')
+const rename = require('gulp-rename')
+const merge = require('merge-stream')
+const cleanCSS = require('gulp-clean-css')
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
     gulp.src('js/**/*.js')
         .pipe(gulp.dest('build/js'))
 })
 
-gulp.task('styles', function() {
-    var lessStream = gulp.src(['styles/*.less'])
+gulp.task('styles', () => {
+    const lessStream = gulp.src(['styles/*.less'])
         .pipe(concat('main.less'))
         .pipe(less())
 
-    var cssStream = gulp.src('styles/vendor/*.css')
+    const cssStream = gulp.src('styles/vendor/*.css')
         .pipe(concat('vendor.css'))
 
     return merge(lessStream, cssStream)
@@ -26,12 +26,12 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('build/css'))
 })
 
-gulp.task('assets', function() {
+gulp.task('assets', () => {
     gulp.src('assets/**/*.*')
         .pipe(gulp.dest('build/assets'))
 })
 
-gulp.task('handlebars', function() {
+gulp.task('handlebars', () => {
     gulp.src('templates/*.handlebars')
         .pipe(handlebars({}, {
             batch: ['partials']
@@ -42,7 +42,7 @@ gulp.task('handlebars', function() {
         .pipe(gulp.dest('build/'))
 })
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
     gulp.watch('js/**.js', ['scripts'])
     gulp.watch('styles/*.less', ['styles'])
     gulp.watch('templates/*.handlebars', ['handlebars'])
