@@ -93,10 +93,11 @@
         }
     }
 
-    .package-bg() {
+    .package-bg(@image-url) {
+        background-image: url(@image-url);
         background-size: cover;
         background-position-x: center;
-        background-position-y: -80px;
+        background-position-y: top;
 
         @media screen and (min-width: @pure-md) {
             background-position-y: -300px;
@@ -104,28 +105,22 @@
     }
 
     .package-early {
-        background-image: url('../assets/img/bg-early-package.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-early-package.jpg');
     }
     .package-junior {
-        background-image: url('../assets/img/bg-jr-package.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-jr-package.jpg');
     }
     .package-senior {
-        background-image: url('../assets/img/bg-sr-package.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-sr-package.jpg');
     }
     .package-transfer {
-        background-image: url('../assets/img/bg-transfer-package.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-transfer-package.jpg');
     }
     .package-athlete {
-        background-image: url('../assets/img/bg-athlete-package.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-athlete-package.jpg');
     }
     .additional-services {
-        background-image: url('../assets/img/bg-additional-services.jpg');
-        .package-bg;
+        .package-bg('../assets/img/bg-additional-services.jpg');
 
         .service-facets {
             padding: 0 @minimum-padding;
