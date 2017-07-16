@@ -8,7 +8,8 @@ const cleanCSS = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('scripts', () => {
-    gulp.src('js/**/*.js')
+    gulp.src(['js/vendor/**.js', 'js/main.js'])
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('build/js'))
 })
 
