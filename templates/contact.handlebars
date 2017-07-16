@@ -3,4 +3,40 @@
     {{> nav}}
     <h1>Contact Us</h1>
     <p>Feel free to email us at <a href="mailto:info@collegeonthehorizon.com">info@collegeonthehorizon.com</a> or call us at <a href="tel:1-503-555-5555">503-555-5555</a>, or fill out the form below and we’ll contact you back shortly!</p>
+    <form>
+        <div class="pure-g">
+            <div class="pure-u-1-2">I am a:&nbsp;&nbsp;&nbsp;</div>
+            <ul class="pure-u-1-2">
+                <li>
+                    <input type="radio" id="freshman" name="demographic" value="freshman" checked="true" />
+                    <label for="freshman">Freshman</label>
+                </li>
+                <li>
+                    <input type="radio" id="sophomore" name="demographic" value="sophomore" />
+                    <label for="sophomore">Sophomore</label>
+                </li>
+                <li>
+                    <input type="radio" id="junior" name="demographic" value="junior" />
+                    <label for="junior">Junior</label>
+                </li>
+                <li>
+                    <input type="radio" id="senior" name="demographic" value="senior" />
+                    <label for="senior">Senior</label>
+                </li>
+                <li>
+                    <input type="radio" id="athlete" name="demographic" value="athlete" />
+                    <label for="athlete">Athlete</label>
+                </li>
+                <li>
+                    <input type="radio" id="transfer" name="demographic" value="transfer" />
+                    <label for="transfer">Transfer Student</label>
+                </li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="Your Name" />
+        <input type="text" placeholder="Your Email" />
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
 {{> html-end}}
