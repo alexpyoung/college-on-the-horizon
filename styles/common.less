@@ -97,6 +97,23 @@ button {
     }
 }
 
+form > * {
+    display: block;
+}
+
+.default-input() {
+    border: thin solid @yellow;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: @default-spacing auto;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+input[type=text] {
+    .default-input();
+}
+
 footer {
     .navigation-bar;
     height: 310px;
