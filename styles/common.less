@@ -52,6 +52,18 @@ nav {
     }
 }
 
+.content {
+    padding: 0 @minimum-padding;
+
+    @media screen and (min-width: @pure-md) {
+        padding: 0 @minimum-padding*1.5;
+    }
+
+    @media screen and (min-width: @pure-xl) {
+        padding: 0 @minimum-padding*2;
+    }
+}
+
 .accordion-toggle {
     cursor: pointer;
 }
