@@ -9,6 +9,7 @@
     "gulp-clean-css": "3.7.x",
     "gulp-compile-handlebars": "0.6.x",
     "gulp-concat": "2.6.x",
+    "gulp-imagemin": "3.3.x",
     "gulp-less": "3.3.x",
     "gulp-rename": "1.2.x",
     "merge-stream": "1.0.x"
