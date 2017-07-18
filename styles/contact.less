@@ -22,8 +22,10 @@
     }
 
     form {
-        > * {
-            display: block;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .pure-u-1-2:first-child {
@@ -41,16 +43,9 @@
     }
 
     textarea {
+        .default-input();
         min-height: 250px;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .cta {
-        display: none;
-    }
+    .no-cta();
 }
