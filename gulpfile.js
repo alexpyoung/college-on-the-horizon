@@ -6,6 +6,7 @@ const rename = require('gulp-rename')
 const merge = require('merge-stream')
 const cleanCSS = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
+const imagemin = require('gulp-imagemin')
 
 gulp.task('scripts', () => {
     gulp.src(['js/vendor/**.js', 'js/main.js'])
@@ -25,15 +26,22 @@ gulp.task('styles', () => {
     const cssStream = gulp.src('styles/vendor/*.css')
         .pipe(concat('vendor.css'))
 
-    return merge(lessStream, cssStream)
+    merge(lessStream, cssStream)
         .pipe(concat('main.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest('build/css'))
 })
 
 gulp.task('assets', () => {
-    gulp.src('assets/**/*.*')
-        .pipe(gulp.dest('build/assets'))
+    gulp.src('assets/font/*')
+        .pipe(gulp.dest('build/assets/font'))
+
+    gulp.src('assets/img/*')
+        .pipe(imagemin({
+            optimizationLevel: 7,
+            progressive: true
+        }))
+        .pipe(gulp.dest('build/assets/img'))
 })
 
 gulp.task('handlebars', () => {
