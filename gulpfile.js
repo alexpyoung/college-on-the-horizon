@@ -54,12 +54,22 @@ gulp.task('handlebars', () => {
         }))
         .pipe(gulp.dest('build/'))
 })
+gulp.task('php', () => {
+    gulp.src(['templates/contact.handlebars'])
+        .pipe(handlebars({}, {
+            batch: ['partials']
+        }))
+        .pipe(rename(function(path) {
+            path.extname = '.php'
+        }))
+        .pipe(gulp.dest('build/'))
+})
 
 gulp.task('watch', () => {
     gulp.watch('js/**.js', ['scripts'])
     gulp.watch('styles/*.less', ['styles'])
-    gulp.watch('templates/*.handlebars', ['handlebars'])
-    gulp.watch('partials/*.handlebars', ['handlebars'])
+    gulp.watch('templates/*.handlebars', ['handlebars', 'php'])
+    gulp.watch('partials/*.handlebars', ['handlebars', 'php'])
 })
 
 gulp.task('default', [
@@ -67,5 +77,6 @@ gulp.task('default', [
     'styles',
     'handlebars',
     'assets',
+    'php',
     'watch'
 ])
