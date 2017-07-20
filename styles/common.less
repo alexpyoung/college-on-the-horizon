@@ -116,10 +116,10 @@ input[type=text] {
 
 footer {
     .navigation-bar;
-    height: 355px;
+    height: 385px;
     color: @off-white;
     @media screen and (min-width: @pure-sm) {
-        height: 170px;
+        height: 210px;
     }
 
     ul {
@@ -138,6 +138,25 @@ footer {
         a {
             color: @off-white;
             text-decoration: none;
+        }
+    }
+
+    .social-media {
+        margin-bottom: 15px;
+
+        a {
+            display: inline-block;
+            height: 36px;
+            margin: 0 10px;
+            width: 36px;
+        }
+
+        .social-fb {
+            background-image: url('../assets/img/icon-facebook.png')
+        }
+
+        .social-li {
+            background-image: url('../assets/img/icon-linkedin.png')
         }
     }
 }
