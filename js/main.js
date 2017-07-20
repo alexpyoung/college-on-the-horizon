@@ -2,7 +2,7 @@ $(document).ready(function($) {
     let accordionSpeed = 'fast'
     // Hamburger menu toggle
     $('.menu-icon').click(function(){
-        $(this).toggleClass('open');
+        $(this).toggleClass('open')
         $('.nav-link').slideToggle(accordionSpeed)
     });
     // Packages accordion
@@ -22,7 +22,7 @@ $(document).ready(function($) {
     })
     // FAQ accordion-toggle
     $('.content').find('.accordion-toggle').click(function(){
-        $(this).next().slideToggle(accordionSpeed)
         $(".accordion-content").not($(this).next()).slideUp(accordionSpeed)
+        $(this).next().slideToggle(accordionSpeed)
     })
 })
