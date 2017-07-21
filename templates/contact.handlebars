@@ -3,8 +3,7 @@
     {{> nav}}
     <h1>Contact Us</h1>
     <?php
-        $action=$_REQUEST['action'];
-        if ($action=="") {
+        if (empty($_REQUEST['action'])) {
     ?>
         <p>Feel free to email us at <a href="mailto:maria@collegeonthehorizon.com">maria@collegeonthehorizon.com</a> or call us at <a href="tel:1-503-473-6196">503-473-6196</a>, or fill out the form below and we’ll contact you back shortly!</p>
         {{> contact-form}}
@@ -15,13 +14,20 @@
             Thanks! We'll get back to you shortly.
         </p>
     <?php
+            $target="maria@collegeonthehorizon.com";
+            $from="noreply@collegeonthehorizon.com";
             $demographic=$_REQUEST['demographic'];
             $name=$_REQUEST['name'];
             $email=$_REQUEST['email'];
-            $message=$_REQUEST['message'];
-            $from="From: $name<$email>\r\nReturn-path: $email";
-            $subject="Message from a $demographic via collegeonthehorizon.com";
-            mail("maria@collegeonthehorizon.com", $subject, $message, $from);
+            $message="$name is a $demographic and can be reached at $email.\n\n";
+            $message.=$_REQUEST['message'];
+            $headers=join("\r\n", [
+                "From: College on the Horizon<$from>",
+                "Return-path: $from",
+                "To: $target"
+            ]);
+            $subject="New message from $name!";
+            mail($target, $subject, $message, $headers);
         }
     ?>
 {{> html-end}}
