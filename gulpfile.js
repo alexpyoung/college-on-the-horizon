@@ -7,11 +7,13 @@ const merge = require('merge-stream')
 const cleanCSS = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
+const livereload = require('gulp-livereload')
 
 gulp.task('scripts', () => {
     gulp.src(['js/vendor/**.js', 'js/main.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('build/js'))
+        .pipe(livereload())
 })
 
 gulp.task('styles', () => {
@@ -30,6 +32,7 @@ gulp.task('styles', () => {
         .pipe(concat('main.css'))
         .pipe(cleanCSS())
         .pipe(gulp.dest('build/css'))
+        .pipe(livereload())
 })
 
 gulp.task('assets', () => {
@@ -53,6 +56,7 @@ gulp.task('handlebars', () => {
             path.extname = '.html'
         }))
         .pipe(gulp.dest('build/'))
+        .pipe(livereload())
 })
 gulp.task('php', () => {
     gulp.src(['templates/contact.handlebars'])
@@ -63,9 +67,11 @@ gulp.task('php', () => {
             path.extname = '.php'
         }))
         .pipe(gulp.dest('build/'))
+        .pipe(livereload())
 })
 
 gulp.task('watch', () => {
+    livereload.listen()
     gulp.watch('js/**.js', ['scripts'])
     gulp.watch('styles/*.less', ['styles'])
     gulp.watch('templates/*.handlebars', ['handlebars', 'php'])
