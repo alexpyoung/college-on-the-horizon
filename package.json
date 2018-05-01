@@ -11,6 +11,7 @@
     "gulp-concat": "2.6.x",
     "gulp-imagemin": "3.3.x",
     "gulp-less": "3.3.x",
+    "gulp-livereload": "3.8.x",
     "gulp-rename": "1.2.x",
     "merge-stream": "1.0.x",
     "serve": "6.5.x"
